@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Login } from '../interfaces/auth';
+import { Login, resetPassword } from '../interfaces/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +53,32 @@ export class AuthService {
   login(formData: Login): Observable<any> {
     const url = `${this.globalService.apiUrl}/api/v1/auth/login`;
     return this.http.post<any>(url, formData);
+  }
+
+  forgetPassword(email: string): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/auth/forgetPassword`;
+    return this.http.post<any>(url, email);
+  }
+
+  verifyResetCode(resetCode: string): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/auth/verifyCode`;
+    return this.http.post<any>(
+      url,
+      { resetCode },
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('resetToken')}`,
+        },
+      }
+    );
+  }
+
+  resetPassword(formData: resetPassword): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/auth/resetPassword`;
+    return this.http.put<any>(url, formData, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('resetToken')}`,
+      },
+    });
   }
 }
