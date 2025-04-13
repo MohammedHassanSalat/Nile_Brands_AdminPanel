@@ -1,1 +1,13 @@
-<app-sidebar></app-sidebar>
+<div class="min-h-screen flex">
+  <!-- Sidebar -->
+  <div class="sm:w-72 fixed sm:static z-40">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex items-center justify-center p-4 sm:p-6">
+    <div class="w-full max-w-4xl">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
