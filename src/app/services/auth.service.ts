@@ -81,4 +81,9 @@ export class AuthService {
       },
     });
   }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.currentUser.next(null);
+  }
 }

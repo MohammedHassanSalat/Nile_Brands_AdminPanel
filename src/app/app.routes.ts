@@ -4,15 +4,17 @@ import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
 import { DashboardComponent } from './components/adminpanel/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'signin', component: LoginComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'verifyemail', component: VerifyemailComponent },
   {
     path: 'dashboard',
+    canActivate: [authGuard],
     component: DashboardComponent,
     // children: [
 
