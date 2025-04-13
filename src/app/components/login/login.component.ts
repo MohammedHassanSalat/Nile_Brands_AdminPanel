@@ -32,6 +32,7 @@ export class LoginComponent {
                 const role = userRes.data?.role;
                 if (role === 'admin') {
                   this.AuthService.currentUser.next(userRes.data);
+                  this.Router.navigate(['/dashboard']);
                 } else {
                   localStorage.removeItem('user')
                   this.invalidLoginMsg = 'invalid role credentials';
