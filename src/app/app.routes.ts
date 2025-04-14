@@ -6,6 +6,7 @@ import { VerifyemailComponent } from './components/verifyemail/verifyemail.compo
 import { DashboardComponent } from './components/adminpanel/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { CreateuserComponent } from './components/adminpanel/createuser/createuser.component';
+import { ViewusersComponent } from './components/adminpanel/viewusers/viewusers.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -17,6 +18,9 @@ export const routes: Routes = [
     path: 'dashboard',
     canActivate: [authGuard],
     component: DashboardComponent,
-    children: [{ path: 'createuser', component: CreateuserComponent }],
+    children: [
+      { path: 'createuser', component: CreateuserComponent },
+      { path: 'viewusers', component: ViewusersComponent },
+    ],
   },
 ];

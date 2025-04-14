@@ -9,6 +9,7 @@ module.exports = {
         thrid: "#70CEAF",
         fontColor: "#242526",
         placeholder: "#0000009C",
+        backgroundCard: "#D9D9D9",
       },
     },
   },
