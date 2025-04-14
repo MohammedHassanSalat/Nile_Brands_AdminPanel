@@ -35,9 +35,9 @@ export class ViewusersComponent implements OnInit {
   ) {
     this.isLoading = true;
     this.userService.getUsers(params).subscribe({
-      next: (response) => {
-        this.users = response.data;
-        this.pagination = response.pagination;
+      next: (res) => {
+        this.users = res.data;
+        this.pagination = res.pagination;
         this.isLoading = false;
       },
       error: (err) => {
@@ -52,7 +52,14 @@ export class ViewusersComponent implements OnInit {
   }
 
   deleteUser(userId: string) {
-    // Placeholder for delete functionality
-    console.log('Delete user:', userId);
+    this.userService.deleteUser(userId).subscribe({
+      next: () => {
+        this.deleteUserMsg = 'user deleted successfully';
+        this.fetchUsers();
+      },
+      error: () => {
+        this.deleteUserMsg = 'something went wrong please try again'
+      },
+    })
   }
 }

@@ -7,6 +7,10 @@
     <p *ngIf="fetchDataErrorMsg" class="text-[25px] sm:text-[30px] font-[700] text-fontColor">{{fetchDataErrorMsg}}</p>
   </div>
 
+  <div>
+    <p *ngIf="deleteUserMsg" class="text-[16px] sm:text-[20px] text-green-500">{{deleteUserMsg}}</p>
+  </div>
+
   <div *ngIf="isLoading" class="flex justify-center items-center h-64">
     <svg class="w-8 h-8 animate-spin text-fontColor" fill="none" viewBox="0 0 24 24">
       <path stroke="currentColor" stroke-width="2" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2" />

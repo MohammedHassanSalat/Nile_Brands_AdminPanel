@@ -43,4 +43,11 @@ export class UsersService {
       headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
     });
   }
+
+  deleteUser(userId: string): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/users/${userId}`;
+    return this.http.delete<any>(url, {
+      headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    });
+  }
 }
