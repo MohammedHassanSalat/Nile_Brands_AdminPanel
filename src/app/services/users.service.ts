@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { HttpClient, HttpParamsOptions } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreateUser, UsersResponse } from '../interfaces/users';
+import { CreateUser, updateUserPassword, updateUserStatus, UsersResponse } from '../interfaces/users';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +47,33 @@ export class UsersService {
   deleteUser(userId: string): Observable<any> {
     const url = `${this.globalService.apiUrl}/api/v1/users/${userId}`;
     return this.http.delete<any>(url, {
+      headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    });
+  }
+
+  getUser(userId: string): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/users/${userId}`;
+    return this.http.get<any>(url, {
+      headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    });
+  }
+
+  updateUserStatus(
+    formData: updateUserStatus,
+    userId: string
+  ): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/users/${userId}`;
+    return this.http.put<any>(url, formData, {
+      headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    });
+  }
+
+  updateUserPassword(
+    formData: updateUserPassword,
+    userId: string
+  ): Observable<any> {
+    const url = `${this.globalService.apiUrl}/api/v1/users/${userId}/changePassword`;
+    return this.http.put<any>(url, formData, {
       headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
     });
   }

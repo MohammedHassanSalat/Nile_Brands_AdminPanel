@@ -1,0 +1,93 @@
+<div class="flex flex-col gap-4">
+  <div>
+    <h2 class="text-[25px] sm:text-[30px] font-[700] text-fontColor">Update user status</h2>
+  </div>
+
+  <div class="p-6 bg-white shadow-md border rounded-lg border-fontColor">
+    <form [formGroup]="updateStatusForm" (ngSubmit)="updateUserStatus()" class="mt-6">
+      <div class="relative">
+        <label for="name"
+          class="absolute left-4 top-[-15px] text-[16px] md:text-[20px] text-fontColor bg-white px-1">Name</label>
+        <input type="text" id="name" formControlName="name"
+          class="block max-sm:w-full sm:w-[70%] px-4 pt-2 pb-2 mt-2 bg-white rounded-lg border border-fontColor" />
+        @if (updateStatusForm.get('name')?.errors !== null && updateStatusForm.get('name')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if(updateStatusForm.get('name')?.errors?.['required']){<p>Name Required</p>}
+        </div>
+        }
+      </div>
+
+      <div class="mt-4">
+        <label for="active" class="block mb-2 text-[16px] md:text-[20px] text-fontColor">Active Status</label>
+        <input type="checkbox" id="active" formControlName="active"
+          class="h-5 w-5 text-primary focus:ring-primary border-fontColor" />
+      </div>
+
+      <!-- <div class="relative mt-4">
+        <label for="status"
+          class="absolute left-4 top-[-15px] text-[16px] md:text-[20px] text-fontColor bg-white px-1">Status</label>
+        <input  id="status" formControlName="status"
+          class="block max-sm:w-full sm:w-[70%] px-4 pt-2 pb-2 mt-2 bg-white rounded-lg border border-fontColor" />
+        @if (updateStatusForm.get('status')?.errors !== null && updateStatusForm.get('status')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if(updateStatusForm.get('status')?.errors?.['required']){<p>Status Required</p>}
+        </div>
+        }
+      </div> -->
+
+      <div class="mt-6 sm:text-right">
+        <button type="submit" class="px-12 py-2 text-[16px] text-white bg-primary rounded-[16px]"
+          [disabled]="updateStatusForm.invalid">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="flex flex-col gap-4 mt-4">
+  <div>
+    <h2 class="text-[25px] sm:text-[30px] font-[700] text-fontColor">Update user password</h2>
+  </div>
+
+  <div class="p-6 bg-white shadow-md border rounded-lg border-fontColor">
+    <form [formGroup]="updatePasswordForm" (ngSubmit)="updateUserPassword()" class="mt-6">
+      <div class="relative">
+        <label for="password"
+          class="absolute left-4 top-[-15px] text-[16px] md:text-[20px] text-fontColor bg-white px-1">Password</label>
+        <input type="password" id="password" formControlName="password"
+          class="block max-sm:w-full sm:w-[70%] px-4 pt-2 pb-2 mt-2 bg-white rounded-lg border border-fontColor" />
+        @if (updatePasswordForm.get('password')?.errors !== null && updatePasswordForm.get('password')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if(updatePasswordForm.get('password')?.errors?.['required']){<p>Password Required</p>}
+        </div>
+        }
+      </div>
+
+      <div class="relative mt-4">
+        <label for="repassword"
+          class="absolute left-4 top-[-15px] text-[16px] md:text-[20px] text-fontColor bg-white px-1">Confirm
+          Password</label>
+        <input type="password" id="repassword" formControlName="confirmPassword"
+          class="block max-sm:w-full sm:w-[70%] px-4 pt-2 pb-2 mt-2 bg-white rounded-lg border border-fontColor" />
+        @if (updatePasswordForm.get('confirmPassword')?.errors !== null &&
+        updatePasswordForm.get('confirmPassword')?.touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if(updatePasswordForm.get('confirmPassword')?.errors?.['required']){<p>Confirm Password Required</p>}
+        </div>
+        }
+      </div>
+
+      <div class="mt-6 sm:text-right">
+        <button type="submit" class="px-12 py-2 text-[16px] text-white bg-primary rounded-[16px]"
+          [disabled]="updatePasswordForm.invalid">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="successMsg" class="text-green-500 text-sm mt-4">{{ successMsg }}</div>
+<div *ngIf="failMsg" class="text-red-500 text-sm mt-4">{{ failMsg }}</div>
+

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../interfaces/users';
 import { GlobalService } from '../../../services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewusers',
@@ -21,7 +22,8 @@ export class ViewusersComponent implements OnInit {
 
   constructor(
     private userService: UsersService,
-    private GlobalService: GlobalService
+    private GlobalService: GlobalService,
+    private Router:Router
   ) {
     this.userImage = this.GlobalService.userimagepreurl;
   }
@@ -41,14 +43,16 @@ export class ViewusersComponent implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.fetchDataErrorMsg = 'No Data'
+        this.fetchDataErrorMsg = 'No Data';
         this.isLoading = false;
       },
     });
   }
 
   getUserImage(imagePath?: string): string {
-    return imagePath && !imagePath.startsWith('http') ? `${this.userImage}${imagePath}` : 'images/noimage.jpg';
+    return imagePath && !imagePath.startsWith('http')
+      ? `${this.userImage}${imagePath}`
+      : 'images/noimage.jpg';
   }
 
   deleteUser(userId: string) {
@@ -58,8 +62,12 @@ export class ViewusersComponent implements OnInit {
         this.fetchUsers();
       },
       error: () => {
-        this.deleteUserMsg = 'something went wrong please try again'
+        this.deleteUserMsg = 'something went wrong please try again';
       },
-    })
+    });
+  }
+
+  goToUpdateUser(userId: string) {
+    this.Router.navigate(['dashboard/updateuser', userId]);
   }
 }

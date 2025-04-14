@@ -26,3 +26,13 @@ export interface UsersResponse {
   pagination: Pagination;
   data: User[];
 }
+
+export interface updateUserStatus {
+  readonly name: string;
+  readonly active: boolean;
+}
+
+export interface updateUserPassword {
+  readonly password: string;
+  readonly confirmPassword: string;
+}
