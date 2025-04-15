@@ -103,7 +103,7 @@
         </button>
         <ul id="dropdown-feedback" class="hidden py-2 space-y-2">
           <li class="ml-4">
-            <a
+            <button [routerLink]="['/dashboard/viewfeedbacks']" routerLinkActive="router-link-active"
               class="flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100">
               <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -121,7 +121,7 @@
                     fill="#242526" />
                 </svg>
               </div>
-            </a>
+            </button>
           </li>
         </ul>
       </li>

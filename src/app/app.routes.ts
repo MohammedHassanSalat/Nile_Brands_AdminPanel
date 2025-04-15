@@ -8,6 +8,7 @@ import { authGuard } from './guards/auth.guard';
 import { CreateuserComponent } from './components/adminpanel/createuser/createuser.component';
 import { ViewusersComponent } from './components/adminpanel/viewusers/viewusers.component';
 import { UpdateuserComponent } from './components/adminpanel/updateuser/updateuser.component';
+import { ViewfeedbacksComponent } from './components/adminpanel/viewfeedbacks/viewfeedbacks.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: 'createuser', component: CreateuserComponent },
       { path: 'viewusers', component: ViewusersComponent },
       { path: 'updateuser/:id', component: UpdateuserComponent },
+      { path: 'viewfeedbacks', component: ViewfeedbacksComponent },
     ],
   },
 ];
