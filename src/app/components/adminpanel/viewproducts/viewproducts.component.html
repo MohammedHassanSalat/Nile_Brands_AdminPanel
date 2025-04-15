@@ -1,0 +1,57 @@
+<div class="flex flex-col gap-4 p-4">
+  <div>
+    <h2 class="text-[25px] sm:text-[30px] font-[700] text-fontColor">View All Products</h2>
+  </div>
+
+  <div>
+    <p *ngIf="fetchDataErrorMsg" class="text-[25px] sm:text-[30px] font-[700] text-fontColor">{{fetchDataErrorMsg}}</p>
+  </div>
+
+  <div>
+    <p *ngIf="deleteProductMsg" class="text-[16px] sm:text-[20px] text-green-500">{{deleteProductMsg}}</p>
+  </div>
+
+  <div *ngIf="isLoading" class="flex justify-center items-center h-64">
+    <svg class="w-8 h-8 animate-spin text-fontColor" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-width="2" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2" />
+    </svg>
+  </div>
+
+  <div *ngIf="!isLoading" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-6">
+    <div *ngFor="let product of products" class="flex flex-col gap-y-2 bg-backgroundCard rounded-md p-2">
+      <div>
+        <img class="object-cover aspect-square" [src]="getProductImageUrl(product)" [alt]="product.name">
+      </div>
+      <div class="flex flex-row space-x-2 justify-between p-2">
+        <div class="flex flex-col space-y-1">
+          <p class="text-fontColor font-[400]">{{ product.name.length > 10 ? (product.name | slice:0:10) + '...' : product.name }}</p>
+          <p class="text-fontColor font-[400]">{{ product.price }} L.E</p>
+        </div>
+        <button (click)="deleteProduct(product._id)">
+          <svg width="19" height="25" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.3194 12.0254L11.1802 13.4228L12.3194 14.8202C12.7833 15.3893 12.7833 16.3109 12.3194 16.8799C12.0875 17.1645 11.7835 17.3063 11.4795 17.3063C11.1755 17.3063 10.8715 17.1645 10.6396 16.8799L9.5004 15.4825L8.36124 16.8799C8.12929 17.1645 7.8253 17.3063 7.52131 17.3063C7.21733 17.3063 6.91334 17.1645 6.68139 16.8799C6.21749 16.3109 6.21749 15.3893 6.68139 14.8202L7.82055 13.4228L6.68139 12.0254C6.21749 11.4563 6.21749 10.5347 6.68139 9.96563C7.14529 9.39656 7.89655 9.39656 8.36044 9.96563L9.49961 11.3631L10.6388 9.96563C11.1027 9.39656 11.8539 9.39656 12.3178 9.96563C12.7817 10.5347 12.7817 11.4563 12.3178 12.0254H12.3194ZM19 5.16834C19 5.97242 18.4688 6.62501 17.8125 6.62501H17.3217L16.4668 19.2077C16.2807 21.954 14.3745 24.105 12.1278 24.105H6.87217C4.62552 24.105 2.71926 21.954 2.53323 19.2077L1.67826 6.62501H1.18745C0.531186 6.62501 0 5.97242 0 5.16834C0 4.36426 0.531186 3.71167 1.18745 3.71167H4.95325C5.44327 2.01611 6.76372 0.79834 8.31215 0.79834H10.6871C12.2355 0.79834 13.5559 2.01611 14.046 3.71167H17.8118C18.468 3.71167 19 4.36426 19 5.16834ZM14.9389 6.62501H4.06187L4.90021 18.9649C4.98492 20.2138 5.85176 21.1917 6.87296 21.1917H12.1286C13.1498 21.1917 14.0159 20.2138 14.1014 18.9649L14.9389 6.62501Z"
+              fill="#033555" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div *ngIf="!isLoading" class="flex mt-6 space-x-4">
+    <button [disabled]="pagination.prev === 0"
+      (click)="fetchProducts({ page: pagination.prev, limit: 15, sort: 'name', fields: 'name,coverImage,price' })"
+      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+      Previous
+    </button>
+    <span class="text-sm text-fontColor mt-2">
+      Page {{ pagination.currentPage }} of {{ pagination.totalpages }}
+    </span>
+    <button [disabled]="pagination.next === 0"
+      (click)="fetchProducts({ page: pagination.next, limit: 15, sort: 'name', fields: 'name,coverImage,price' })"
+      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+      Next
+    </button>
+  </div>
+</div>

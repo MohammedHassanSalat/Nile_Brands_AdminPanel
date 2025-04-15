@@ -53,6 +53,46 @@
           </li>
         </ul>
       </li>
+      <!--  Products -->
+      <li>
+        <button type="button"
+          class="flex items-center p-2 w-full text-base font-normal text-fontColor rounded-lg transition duration-75 group hover:bg-gray-100"
+          aria-controls="dropdown-products" data-collapse-toggle="dropdown-products">
+          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1078_3348)">
+              <path
+                d="M4.5 5.5C5.878 5.5 7 4.379 7 3C7 1.621 5.878 0.5 4.5 0.5C3.122 0.5 2 1.621 2 3C2 4.379 3.122 5.5 4.5 5.5ZM4.5 1.5C5.327 1.5 6 2.173 6 3C6 3.827 5.327 4.5 4.5 4.5C3.673 4.5 3 3.827 3 3C3 2.173 3.673 1.5 4.5 1.5ZM7 10V24C7 24.276 6.776 24.5 6.5 24.5C6.224 24.5 6 24.276 6 24V17.5H3.5C3.329 17.5 3.165 17.473 3 17.449V24C3 24.276 2.776 24.5 2.5 24.5C2.224 24.5 2 24.276 2 24V17.149C0.822 16.585 0 15.391 0 14V10C0 8.07 1.57 6.5 3.5 6.5H14.5C14.776 6.5 15 6.724 15 7C15 7.276 14.776 7.5 14.5 7.5H3.5C2.122 7.5 1 8.621 1 10V14C1 15.379 2.122 16.5 3.5 16.5H6V10C6 9.724 6.224 9.5 6.5 9.5C6.776 9.5 7 9.724 7 10ZM21.5 16.5H19.987C20.304 16.081 20.5 15.565 20.5 15V12C20.5 10.621 19.378 9.5 18 9.5H15C13.622 9.5 12.5 10.621 12.5 12V15C12.5 15.565 12.695 16.081 13.013 16.5H11.5C10.122 16.5 9 17.621 9 19V22C9 23.379 10.122 24.5 11.5 24.5H14.5C15.321 24.5 16.044 24.097 16.5 23.485C16.956 24.098 17.679 24.5 18.5 24.5H21.5C22.878 24.5 24 23.379 24 22V19C24 17.621 22.878 16.5 21.5 16.5ZM13.5 12C13.5 11.173 14.173 10.5 15 10.5H18C18.827 10.5 19.5 11.173 19.5 12V15C19.5 15.827 18.827 16.5 18 16.5H15C14.173 16.5 13.5 15.827 13.5 15V12ZM14.5 23.5H11.5C10.673 23.5 10 22.827 10 22V19C10 18.173 10.673 17.5 11.5 17.5H14.5C15.327 17.5 16 18.173 16 19V22C16 22.827 15.327 23.5 14.5 23.5ZM23 22C23 22.827 22.327 23.5 21.5 23.5H18.5C17.673 23.5 17 22.827 17 22V19C17 18.173 17.673 17.5 18.5 17.5H21.5C22.327 17.5 23 18.173 23 19V22ZM15.5 12C15.5 11.724 15.724 11.5 16 11.5H17C17.276 11.5 17.5 11.724 17.5 12C17.5 12.276 17.276 12.5 17 12.5H16C15.724 12.5 15.5 12.276 15.5 12ZM21 19C21 19.276 20.776 19.5 20.5 19.5H19.5C19.224 19.5 19 19.276 19 19C19 18.724 19.224 18.5 19.5 18.5H20.5C20.776 18.5 21 18.724 21 19ZM14 19C14 19.276 13.776 19.5 13.5 19.5H12.5C12.224 19.5 12 19.276 12 19C12 18.724 12.224 18.5 12.5 18.5H13.5C13.776 18.5 14 18.724 14 19Z"
+                fill="#242526" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1078_3348">
+                <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
+              </clipPath>
+            </defs>
+          </svg>
+          <span class="flex-1 ml-3 text-left whitespace-nowrap text-fontColor text-[24px] font-[500]">Products</span>
+        </button>
+        <ul id="dropdown-products" class="hidden py-2 space-y-2">
+          <li class="ml-4">
+            <button [routerLink]="['/dashboard/viewproducts']" routerLinkActive="router-link-active"
+              class="flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100">
+              <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.1628 18.752L5.2683 22.41L6.58532 14.6624L1 9.176L8.70774 8.04874L12.155 1L15.6023 8.04874L23.31 9.176L17.7247 14.6624L19.0417 22.41L12.1628 18.752Z"
+                  stroke="#242526" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="ml-3 text-fontColor text-[20px] font-[400]">View All Products</span>
+              <div class="mt-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.0634 18.707L11.3584 17.293L17.7493 12L11.3584 6.70697L13.0682 5.29297L19.4542 10.586C19.9073 10.961 20.1618 11.4696 20.1618 12C20.1618 12.5303 19.9073 13.0389 19.4542 13.414L13.0634 18.707Z"
+                    fill="#242526" />
+                </svg>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </li>
       <!-- User management -->
       <li>
         <button type="button"

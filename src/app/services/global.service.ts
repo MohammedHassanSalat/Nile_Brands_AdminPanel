@@ -8,4 +8,5 @@ export class GlobalService {
   apiUrl = 'https://nile-brands.up.railway.app';
   userimagepreurl: any = `${this.apiUrl}/users/`;
   brandimagepreurl: any = `${this.apiUrl}/brands/`;
+  productimagepreurl: any = `${this.apiUrl}/products/`;
 }
