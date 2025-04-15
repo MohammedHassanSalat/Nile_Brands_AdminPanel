@@ -23,7 +23,7 @@ export class ViewusersComponent implements OnInit {
   constructor(
     private userService: UsersService,
     private GlobalService: GlobalService,
-    private Router:Router
+    private Router: Router
   ) {
     this.userImage = this.GlobalService.userimagepreurl;
   }
@@ -53,6 +53,16 @@ export class ViewusersComponent implements OnInit {
     return imagePath && !imagePath.startsWith('http')
       ? `${this.userImage}${imagePath}`
       : 'images/noimage.jpg';
+  }
+
+  getUserImageUrl(user: any): string {
+    if (
+      user.userImage &&
+      !user.userImage.startsWith('http')
+    ) {
+      return `${this.GlobalService.userimagepreurl}${user.userImage}`;
+    }
+    return user?.userImage || 'images/noimage.jpg';
   }
 
   deleteUser(userId: string) {

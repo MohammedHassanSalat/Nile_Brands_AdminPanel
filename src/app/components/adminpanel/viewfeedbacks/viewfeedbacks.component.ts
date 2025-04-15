@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UsersService } from '../../../services/users.service';
 import { GlobalService } from '../../../services/global.service';
 import { Feedback } from '../../../interfaces/feedbacks';
 import { FeedbacksService } from '../../../services/feedbacks.service';
@@ -19,12 +18,11 @@ export class ViewfeedbacksComponent {
   userImage: any;
   fetchDataErrorMsg: string = '';
 
-  rating: number = 0; // Stores selected rating
-  hoveredRating: number = 0; // Stores temporary hover rating
-  stars = Array(5).fill(0); // Creates an array of 5 elements for stars
+  rating: number = 0;
+  stars = Array(5).fill(0);
 
   setRating(value: number): void {
-    this.rating = value; // Set the clicked rating
+    this.rating = value;
   }
 
   constructor(
@@ -60,9 +58,10 @@ export class ViewfeedbacksComponent {
     });
   }
 
-  getUserImage(imagePath?: string): string {
-    return imagePath && !imagePath.startsWith('http')
-      ? `${this.userImage}${imagePath}`
-      : 'images/noimage.jpg';
+  getUserImageUrl(feedback: any): string {
+    if (feedback.user?.userImage && !feedback.user?.userImage.startsWith('http')) {
+      return `${this.GlobalService.userimagepreurl}${feedback.user?.userImage}`;
+    }
+    return feedback.user?.userImage || 'images/noimage.jpg';
   }
 }

@@ -66,7 +66,7 @@ export class ViewproductsComponent {
 
   getProductImageUrl(product: any): string {
     if (product.coverImage && !product.coverImage.startsWith('http')) {
-      return `${this.GlobalService.apiUrl}/products/${product.coverImage}`;
+      return `${this.GlobalService.productimagepreurl}${product.coverImage}`;
     }
     return product.coverImage || 'images/noimage.jpg';
   }

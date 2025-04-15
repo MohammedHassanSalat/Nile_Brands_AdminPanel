@@ -21,7 +21,7 @@ export class ViewbrandsComponent {
 
   constructor(
     private BrandsService: BrandsService,
-    private GlobalService: GlobalService,
+    private GlobalService: GlobalService
   ) {
     this.brandImage = this.GlobalService.brandimagepreurl;
   }
@@ -51,6 +51,12 @@ export class ViewbrandsComponent {
     return imagePath && !imagePath.startsWith('http')
       ? `${this.brandImage}${imagePath}`
       : 'images/noimage.jpg';
+  }
+  getBrandImageUrl(brand: any): string {
+    if (brand.logo && !brand.logo.startsWith('http')) {
+      return `${this.GlobalService.brandimagepreurl}${brand.logo}`;
+    }
+    return brand.logo || 'images/noimage.jpg';
   }
 
   deleteBrand(brandId: string) {

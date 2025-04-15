@@ -21,7 +21,7 @@
     <div *ngFor="let user of users" class="flex flex-row justify-between items-center bg-backgroundCard rounded-lg p-4">
       <div class="flex flex-row space-x-2 items-center">
         <div (click)="goToUpdateUser(user._id)">
-          <img class="rounded-full w-14 h-14 object-cover cursor-pointer" [src]="getUserImage(user.userImage)"
+          <img class="rounded-full w-14 h-14 object-cover cursor-pointer" [src]="getUserImageUrl(user)"
             [alt]="user.name">
         </div>
         <p class="text-fontColor font-[400] text-[20px]">{{ user.name }}</p>
