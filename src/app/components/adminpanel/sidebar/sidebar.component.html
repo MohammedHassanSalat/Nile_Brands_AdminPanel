@@ -20,11 +20,44 @@
           <img src="images/nile brand.png" alt="Logo" class="w-24 h-24" />
         </a>
       </li>
-      <!-- User management -->
+      <!--  Brands -->
       <li>
         <button type="button"
           class="flex items-center p-2 w-full text-base font-normal text-fontColor rounded-lg transition duration-75 group hover:bg-gray-100"
           aria-controls="dropdown-brand" data-collapse-toggle="dropdown-brand">
+          <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.1628 18.752L5.2683 22.41L6.58532 14.6624L1 9.176L8.70774 8.04874L12.155 1L15.6023 8.04874L23.31 9.176L17.7247 14.6624L19.0417 22.41L12.1628 18.752Z"
+              stroke="#242526" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="flex-1 ml-3 text-left whitespace-nowrap text-fontColor text-[24px] font-[500]">Brands</span>
+        </button>
+        <ul id="dropdown-brand" class="hidden py-2 space-y-2">
+          <li class="ml-4">
+            <button [routerLink]="['/dashboard/viewbrands']" routerLinkActive="router-link-active"
+              class="flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100">
+              <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.1628 18.752L5.2683 22.41L6.58532 14.6624L1 9.176L8.70774 8.04874L12.155 1L15.6023 8.04874L23.31 9.176L17.7247 14.6624L19.0417 22.41L12.1628 18.752Z"
+                  stroke="#242526" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="ml-3 text-fontColor text-[20px] font-[400]">View All Brands</span>
+              <div class="mt-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.0634 18.707L11.3584 17.293L17.7493 12L11.3584 6.70697L13.0682 5.29297L19.4542 10.586C19.9073 10.961 20.1618 11.4696 20.1618 12C20.1618 12.5303 19.9073 13.0389 19.4542 13.414L13.0634 18.707Z"
+                    fill="#242526" />
+                </svg>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <!-- User management -->
+      <li>
+        <button type="button"
+          class="flex items-center p-2 w-full text-base font-normal text-fontColor rounded-lg transition duration-75 group hover:bg-gray-100"
+          aria-controls="dropdown-users" data-collapse-toggle="dropdown-users">
           <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1078_2594)">
               <path
@@ -40,7 +73,7 @@
           <span class="flex-1 ml-3 text-left whitespace-nowrap text-fontColor text-[24px] font-[500]">User
             management</span>
         </button>
-        <ul id="dropdown-brand" class="hidden py-2 space-y-2">
+        <ul id="dropdown-users" class="hidden py-2 space-y-2">
           <li class="ml-4">
             <button [routerLink]="['/dashboard/createuser']" routerLinkActive="router-link-active"
               class="flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100">
@@ -125,12 +158,9 @@
           </li>
         </ul>
       </li>
-      <li>
-
-      </li>
     </ul>
     <button (click)="logout()"
-      class="flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100 ">
+      class="mt-5 flex items-center p-2 text-base font-normal text-fontColor rounded-lg transition duration-75 hover:bg-gray-100 ">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M22.963 11.812C22.912 11.686 21.65 8.692 16.883 6.427C16.635 6.309 16.335 6.415 16.217 6.664C16.098 6.913 16.205 7.211 16.454 7.33C19.52 8.787 21.013 10.546 21.645 11.499H8.875C8.599 11.499 8.375 11.723 8.375 11.999C8.375 12.275 8.599 12.499 8.875 12.499H21.64C21.002 13.453 19.5 15.22 16.454 16.668C16.204 16.787 16.098 17.085 16.217 17.334C16.302 17.514 16.482 17.62 16.669 17.62C16.741 17.62 16.814 17.604 16.883 17.572C21.499 15.379 22.823 12.517 22.96 12.198C23.012 12.075 23.014 11.935 22.963 11.812Z"

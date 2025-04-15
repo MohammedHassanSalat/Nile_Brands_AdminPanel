@@ -9,6 +9,7 @@ import { CreateuserComponent } from './components/adminpanel/createuser/createus
 import { ViewusersComponent } from './components/adminpanel/viewusers/viewusers.component';
 import { UpdateuserComponent } from './components/adminpanel/updateuser/updateuser.component';
 import { ViewfeedbacksComponent } from './components/adminpanel/viewfeedbacks/viewfeedbacks.component';
+import { ViewbrandsComponent } from './components/adminpanel/viewbrands/viewbrands.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -25,6 +26,7 @@ export const routes: Routes = [
       { path: 'viewusers', component: ViewusersComponent },
       { path: 'updateuser/:id', component: UpdateuserComponent },
       { path: 'viewfeedbacks', component: ViewfeedbacksComponent },
+      { path: 'viewbrands', component: ViewbrandsComponent },
     ],
   },
 ];
