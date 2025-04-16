@@ -58,7 +58,6 @@ export class UpdateuserComponent {
       },
       error: (err) => {
         this.failMsg = 'Failed to fetch user data';
-        console.error(err);
       },
     });
   }

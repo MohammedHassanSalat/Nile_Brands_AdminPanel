@@ -49,12 +49,6 @@ export class ViewusersComponent implements OnInit {
     });
   }
 
-  getUserImage(imagePath?: string): string {
-    return imagePath && !imagePath.startsWith('http')
-      ? `${this.userImage}${imagePath}`
-      : 'images/noimage.jpg';
-  }
-
   getUserImageUrl(user: any): string {
     if (
       user.userImage &&

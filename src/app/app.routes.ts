@@ -11,6 +11,7 @@ import { UpdateuserComponent } from './components/adminpanel/updateuser/updateus
 import { ViewfeedbacksComponent } from './components/adminpanel/viewfeedbacks/viewfeedbacks.component';
 import { ViewbrandsComponent } from './components/adminpanel/viewbrands/viewbrands.component';
 import { ViewproductsComponent } from './components/adminpanel/viewproducts/viewproducts.component';
+import { ProductreviewsComponent } from './components/adminpanel/productreviews/productreviews.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard/viewbrands', pathMatch: 'full' },
@@ -29,6 +30,7 @@ export const routes: Routes = [
       { path: 'viewfeedbacks', component: ViewfeedbacksComponent },
       { path: 'viewbrands', component: ViewbrandsComponent },
       { path: 'viewproducts', component: ViewproductsComponent },
+      { path: 'viewproductreviews/:id', component: ProductreviewsComponent },
     ],
   },
 ];

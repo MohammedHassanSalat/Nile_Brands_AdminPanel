@@ -46,12 +46,7 @@ export class ViewbrandsComponent {
       },
     });
   }
-
-  getBrandImage(imagePath?: string): string {
-    return imagePath && !imagePath.startsWith('http')
-      ? `${this.brandImage}${imagePath}`
-      : 'images/noimage.jpg';
-  }
+  
   getBrandImageUrl(brand: any): string {
     if (brand.logo && !brand.logo.startsWith('http')) {
       return `${this.GlobalService.brandimagepreurl}${brand.logo}`;

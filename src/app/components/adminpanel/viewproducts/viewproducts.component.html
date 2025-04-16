@@ -19,8 +19,8 @@
 
   <div *ngIf="!isLoading" class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-6">
     <div *ngFor="let product of products" class="flex flex-col gap-y-2 bg-backgroundCard rounded-md p-2">
-      <div>
-        <img class="object-cover aspect-square" [src]="getProductImageUrl(product)" [alt]="product.name">
+      <div (click)="goToProductReviews(product._id)">
+        <img class="object-cover aspect-square cursor-pointer" [src]="getProductImageUrl(product)" [alt]="product.name">
       </div>
       <div class="flex flex-row space-x-2 justify-between p-2">
         <div class="flex flex-col space-y-1">

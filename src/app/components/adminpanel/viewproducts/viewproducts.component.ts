@@ -3,6 +3,7 @@ import { Product } from '../../../interfaces/products';
 import { GlobalService } from '../../../services/global.service';
 import { ProductsService } from '../../../services/products.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewproducts',
@@ -21,7 +22,8 @@ export class ViewproductsComponent {
 
   constructor(
     private ProductsService: ProductsService,
-    private GlobalService: GlobalService
+    private GlobalService: GlobalService,
+    private Router:Router
   ) {
     this.productImage = this.GlobalService.productimagepreurl;
   }
@@ -69,5 +71,9 @@ export class ViewproductsComponent {
       return `${this.GlobalService.productimagepreurl}${product.coverImage}`;
     }
     return product.coverImage || 'images/noimage.jpg';
+  }
+
+  goToProductReviews(productId: string) {
+    this.Router.navigate(['dashboard/viewproductreviews', productId]);
   }
 }
