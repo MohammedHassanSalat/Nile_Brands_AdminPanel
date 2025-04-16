@@ -18,14 +18,13 @@
       class="flex flex-row justify-between items-center bg-backgroundCard rounded-lg p-4">
       <div class="flex flex-row space-x-2 items-center">
         <div>
-          <img class="rounded-full w-14 h-14 object-cover" [src]="getUserImageUrl(feedback)"
-            [alt]="feedback.comment">
+          <img class="rounded-full w-14 h-14 object-cover" [src]="getUserImageUrl(feedback)" [alt]="feedback.comment">
         </div>
         <div class="flex flex-col justify-center">
           <div class="grid grid-cols-5 items-start">
-            <svg *ngFor="let star of stars; let i = index" (click)="setRating(i + 1)" [attr.fill]="(i + 1) <= (feedback.rating) ? '#F5E426' : '#94a3b8'"
-                width="30" height="28" viewBox="0 0 35 32"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg *ngFor="let star of stars; let i = index" (click)="setRating(i + 1)"
+              [attr.fill]="(i + 1) <= (feedback.rating) ? '#F5E426' : '#94a3b8'" width="30" height="28"
+              viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M17.5 0L21.429 12.0922L34.1435 12.0922L23.8572 19.5656L27.7862 31.6578L17.5 24.1844L7.21376 31.6578L11.1428 19.5656L0.85651 12.0922L13.571 12.0922L17.5 0Z" />
             </svg>
@@ -37,19 +36,21 @@
   </div>
 
   <!-- Pagination Controls -->
-  <div *ngIf="!isLoading" class="flex mt-6 space-x-4">
-    <button [disabled]="pagination.prev === 0"
-      (click)="fetchFeedbacks({ page: pagination.prev, limit: 12, sort: 'rating', fields: 'comment,userImage,rating' })"
-      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
-      Previous
-    </button>
-    <span class="text-sm text-fontColor mt-2">
-      Page {{ pagination.currentPage }} of {{ pagination.totalpages }}
-    </span>
-    <button [disabled]="pagination.next === 0"
-      (click)="fetchFeedbacks({ page: pagination.next, limit: 12, sort: 'rating', fields: 'comment,userImage,rating' })"
-      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
-      Next
-    </button>
+  <div *ngIf="!fetchDataErrorMsg">
+    <div *ngIf="!isLoading" class="flex mt-6 space-x-4">
+      <button [disabled]="pagination.prev === 0"
+        (click)="fetchFeedbacks({ page: pagination.prev, limit: 12, sort: 'rating', fields: 'comment,userImage,rating' })"
+        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+        Previous
+      </button>
+      <span class="text-sm text-fontColor mt-2">
+        Page {{ pagination.currentPage }} of {{ pagination.totalpages }}
+      </span>
+      <button [disabled]="pagination.next === 0"
+        (click)="fetchFeedbacks({ page: pagination.next, limit: 12, sort: 'rating', fields: 'comment,userImage,rating' })"
+        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+        Next
+      </button>
+    </div>
   </div>
 </div>

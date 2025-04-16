@@ -36,19 +36,21 @@
   </div>
 
   <!-- Pagination Controls -->
-  <div *ngIf="!isLoading" class="flex mt-6 space-x-4">
-    <button [disabled]="pagination.prev === 0"
-      (click)="fetchBrands({ page: pagination.prev, limit: 12, sort: 'name', fields: 'name,logo' })"
-      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
-      Previous
-    </button>
-    <span class="text-sm text-fontColor mt-2">
-      Page {{ pagination.currentPage }} of {{ pagination.totalpages }}
-    </span>
-    <button [disabled]="pagination.next === 0"
-      (click)="fetchBrands({ page: pagination.next, limit: 12, sort: 'name', fields: 'name,logo' })"
-      class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
-      Next
-    </button>
+  <div *ngIf="!fetchDataErrorMsg">
+    <div *ngIf="!isLoading" class="flex mt-6 space-x-4">
+      <button [disabled]="pagination.prev === 0"
+        (click)="fetchBrands({ page: pagination.prev, limit: 12, sort: 'name', fields: 'name,logo' })"
+        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+        Previous
+      </button>
+      <span class="text-sm text-fontColor mt-2">
+        Page {{ pagination.currentPage }} of {{ pagination.totalpages }}
+      </span>
+      <button [disabled]="pagination.next === 0"
+        (click)="fetchBrands({ page: pagination.next, limit: 12, sort: 'name', fields: 'name,logo' })"
+        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg disabled:opacity-50">
+        Next
+      </button>
+    </div>
   </div>
 </div>
